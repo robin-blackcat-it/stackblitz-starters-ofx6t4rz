@@ -1,3 +1,23 @@
+## SpecStory
+
+## Convert Tailwind Config to TypeScript (2/14/2025, 1:05:49 PM)
+
+_**User**_
+
+can you convert the file `tailwind.config.js` to typescript please and save it as tailwind.config.ts
+
+---
+
+_**Assistant**_
+
+I'll help you convert the tailwind.config.js to TypeScript. The main changes will be:
+1. Adding type definitions
+2. Using export default instead of module.exports
+3. Explicitly typing the config object
+
+Here's the converted file:
+
+```typescript:tailwind.config.ts
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -77,4 +97,21 @@ const config: Config = {
   plugins: [require("tailwindcss-animate")],
 } 
 
-export default config 
+export default config
+```
+
+The main changes made are:
+1. Changed the file extension from `.js` to `.ts`
+2. Removed the JSDoc type comment as it's no longer needed
+3. Imported the `Config` type from tailwindcss
+4. Explicitly typed the config object as `Config`
+5. Changed `module.exports` to `export default`
+
+You can now use this TypeScript version of your Tailwind config file. It provides better type safety and better IDE support.
+
+---
+
+
+
+---
+
