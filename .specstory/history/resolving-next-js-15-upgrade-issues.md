@@ -4,7 +4,7 @@
 
 _**User**_
 
-can you resolve the above issue? @https://nextjs.org/docs/app/building-your-application/upgrading/version-15 
+can you resolve the above issue? @https://nextjs.org/docs/app/building-your-application/upgrading/version-15
 
 ---
 
@@ -13,14 +13,14 @@ _**Assistant**_
 Based on the error message and the Next.js 15 upgrade documentation, the issue is related to the `vaul` package having incompatible peer dependencies with React 19. Here are a few ways to resolve this:
 
 1. **Update vaul to the latest version** (Recommended):
-Check if there's a newer version of vaul that supports React 19:
+   Check if there's a newer version of vaul that supports React 19:
 
 ```bash
 npm install vaul@latest
 ```
 
 2. **Force install** (Temporary solution):
-If there isn't a compatible version yet, you can use the `--force` flag:
+   If there isn't a compatible version yet, you can use the `--force` flag:
 
 ```bash
 npm install next@latest react@latest react-dom@latest --force
@@ -33,13 +33,14 @@ npm install next@latest react@latest react-dom@latest --legacy-peer-deps
 ```
 
 3. **File an issue** with vaul:
-You might want to create an issue in the vaul repository to request React 19 support.
+   You might want to create an issue in the vaul repository to request React 19 support.
 
 From the [Next.js 15 documentation](https://nextjs.org/docs/app/building-your-application/upgrading/version-15):
 
 > If you see a peer dependencies warning, you may need to update `react` and `react-dom` to the suggested versions, or you use the `--force` or `--legacy-peer-deps` flag to ignore the warning. This won't be necessary once both Next.js 15 and React 19 are stable.
 
 I recommend trying these solutions in this order:
+
 1. First try updating vaul to the latest version
 2. If that doesn't work, use the `--force` or `--legacy-peer-deps` flag as a temporary solution
 3. Consider filing an issue with vaul to request React 19 support
@@ -59,12 +60,13 @@ _**Assistant**_
 Here's how to resolve the vaul dependency issue using pnpm commands:
 
 1. **Update vaul to the latest version** (Recommended):
+
 ```bash
 pnpm update vaul@latest
 ```
 
 2. **Force install** (Temporary solution):
-If there isn't a compatible version yet, you can use force resolution:
+   If there isn't a compatible version yet, you can use force resolution:
 
 ```bash
 pnpm install --force
@@ -77,6 +79,7 @@ pnpm install --legacy-peer-deps
 ```
 
 3. **If you need to update Next.js and React specifically**:
+
 ```bash
 pnpm update next@latest react@latest react-dom@latest --force
 ```
@@ -86,6 +89,7 @@ From the [Next.js 15 documentation](https://nextjs.org/docs/app/building-your-ap
 > If you see a peer dependencies warning, you may need to update `react` and `react-dom` to the suggested versions, or you use the `--force` or `--legacy-peer-deps` flag to ignore the warning. This won't be necessary once both Next.js 15 and React 19 are stable.
 
 I recommend trying these solutions in this order:
+
 1. First try updating vaul to the latest version
 2. If that doesn't work, use the `--force` or `--legacy-peer-deps` flag as a temporary solution
 3. Consider filing an issue with vaul to request React 19 support
@@ -103,8 +107,6 @@ how do i install and configure the msw package's mockServiceWorker.js
 ---
 
 _**Assistant**_
-
-
 
 I'll guide you through installing and configuring MSW (Mock Service Worker) in your project:
 
@@ -141,7 +143,7 @@ export const handlers = [
       message: 'Mocked response'
     })
   }),
-  
+
   // Add more handlers here
 ]
 ```
@@ -257,7 +259,7 @@ Then update your initialization code:
 ```typescript:src/app/layout.tsx
 async function initMocks() {
   if (typeof window === 'undefined') return
-  
+
   if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
     const { worker } = await import('../mocks/browser')
     return worker.start({
@@ -271,7 +273,4 @@ This setup gives you a solid foundation for mocking API requests in both develop
 
 ---
 
-
-
 ---
-

@@ -4,7 +4,7 @@
 
 _**User**_
 
-can you provide any information as to why the command 
+can you provide any information as to why the command
 ` npx @next/codemod@canary upgrade latest` is failing to complete, the above file is the log from the last failed attempt
 
 ---
@@ -18,16 +18,19 @@ The error occurs in the semver comparison logic, indicating that the codemod too
 To fix this, you have a few options:
 
 1. Try running the command without the "latest" argument:
+
 ```bash
 npx @next/codemod@canary upgrade
 ```
 
 2. Or specify a specific Next.js version you want to upgrade to, for example:
+
 ```bash
 npx @next/codemod@canary upgrade 14.0.0
 ```
 
 The error is happening because:
+
 1. The command is trying to parse "latest" as a semantic version number
 2. The semver parser is unable to interpret "latest" as a valid version comparator
 3. This causes the TypeError that's being thrown
@@ -66,7 +69,8 @@ Let's fix those "latest" versions. Here's the suggested edit:
 ```
 
 The most important ones to fix are:
-1. The @emotion/* packages because they're core styling dependencies
+
+1. The @emotion/\* packages because they're core styling dependencies
 2. The @mui/material-pigment-css because it's related to your UI framework
 3. @types/react because it's critical for TypeScript type checking
 
@@ -112,8 +116,6 @@ based on that `pnpm ls` can you now update the package.json to reflect all the c
 ---
 
 _**Assistant**_
-
-
 
 I'll help update the package.json with the actual installed versions. Here's the update:
 
@@ -203,6 +205,7 @@ I'll help update the package.json with the actual installed versions. Here's the
 ```
 
 Key changes made:
+
 1. Replaced all "latest" with actual installed versions
 2. Updated React from 19.0.0 to 18.2.0 (the actually installed version)
 3. Updated Next.js from 15.1.7 to 14.2.16
@@ -252,7 +255,4 @@ This should work better now that we're not forcing specific versions of the Reac
 
 ---
 
-
-
 ---
-

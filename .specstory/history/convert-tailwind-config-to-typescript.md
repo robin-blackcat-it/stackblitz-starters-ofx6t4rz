@@ -11,6 +11,7 @@ can you convert the file `tailwind.config.js` to typescript please and save it a
 _**Assistant**_
 
 I'll help you convert the tailwind.config.js to TypeScript. The main changes will be:
+
 1. Adding type definitions
 2. Using export default instead of module.exports
 3. Explicitly typing the config object
@@ -95,12 +96,13 @@ const config: Config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} 
+}
 
 export default config
 ```
 
 The main changes made are:
+
 1. Changed the file extension from `.js` to `.ts`
 2. Removed the JSDoc type comment as it's no longer needed
 3. Imported the `Config` type from tailwindcss
@@ -111,7 +113,4 @@ You can now use this TypeScript version of your Tailwind config file. It provide
 
 ---
 
-
-
 ---
-
